@@ -3,8 +3,8 @@ package com.vulcan.trafficmanagement.device;
 public class IoTDevice{
     private double vehicleSpeed;
     private String trafficLightStatus;
-    private double gpsCoordinatesX;
-    private double gpsCoordinatesY;
+    private double longitude;
+    private double latitude;
     private String date_time;
 
     public double getVehicleSpeed() {
@@ -15,12 +15,12 @@ public class IoTDevice{
         return trafficLightStatus;
     }
 
-    public double getGpsCoordinatesX() {
-        return gpsCoordinatesX;
+    public double getLongitude() {
+        return longitude;
     }
 
-    public double getGpsCoordinatesY() {
-        return gpsCoordinatesY;
+    public double getLatitude() {
+        return latitude;
     }
 
     public String getDate_time() {
@@ -32,8 +32,8 @@ public class IoTDevice{
         return "IoTDevice{" +
                 "vehicleSpeed=" + vehicleSpeed +
                 ", trafficLightStatus='" + trafficLightStatus + '\'' +
-                ", gpsCoordinatesX=" + gpsCoordinatesX +
-                ", gpsCoordinatesY=" + gpsCoordinatesY +
+                ", longitude=" + longitude +
+                ", latitude=" + latitude +
                 ", date_time='" + date_time + '\'' +
                 '}';
     }

@@ -47,8 +47,8 @@ public class TrafficAnalysis extends HttpServlet {
     protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         double vehicleSpeed = 0.00;
         String trafficLightStatus = "NONE";
-        double gpsCoordinatesX = 0.00;
-        double gpsCoordinatesY = 0.00;
+        double longitude = 0.00;
+        double latitude = 0.00;
         String date_time = "NONE";
 
         List<IoTDevice> deviceList = dataStorage.retriveData();
@@ -56,16 +56,16 @@ public class TrafficAnalysis extends HttpServlet {
             IoTDevice ioTDevice = deviceList.get(deviceList.size() - 1);
             vehicleSpeed = ioTDevice.getVehicleSpeed();
             trafficLightStatus = ioTDevice.getTrafficLightStatus();
-            gpsCoordinatesX = ioTDevice.getGpsCoordinatesX();
-            gpsCoordinatesY = ioTDevice.getGpsCoordinatesY();
+            longitude = ioTDevice.getLongitude();
+            latitude = ioTDevice.getLatitude();
             date_time = ioTDevice.getDate_time();
         }
 
         JsonObject json = new JsonObject();
         json.addProperty("vehicleSpeed", vehicleSpeed);
         json.addProperty("trafficLightStatus", trafficLightStatus);
-        json.addProperty("gpsCoordinatesX", gpsCoordinatesX);
-        json.addProperty("gpsCoordinatesY", gpsCoordinatesY);
+        json.addProperty("longitude", longitude);
+        json.addProperty("latitude", latitude);
         json.addProperty("date_time", date_time);
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");

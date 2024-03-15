@@ -22,7 +22,6 @@ public class MessageReceiver implements MessageListener {
         try{
             String messageBody = message.getBody(String.class);
             IoTDevice ioTDevice = new Gson().fromJson(messageBody,IoTDevice.class);
-            System.out.println(ioTDevice.toString());
             dataStorage.storeData(ioTDevice);
         }catch (JMSException e){
             e.printStackTrace();

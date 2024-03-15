@@ -103,18 +103,18 @@
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center text-muted">
-                                    <span class="text-truncate w-100">GPS Coordinates X</span>
+                                    <span class="text-truncate w-100">Longitude</span>
                                 </div>
                             </td>
-                            <td class="text-end f-w-600"><span id="gps_x">0</span></td>
+                            <td class="text-end f-w-600"><span id="longitude_value">0</span></td>
                         </tr>
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center text-muted">
-                                    <span class="text-truncate w-100">GPS Coordinates X</span>
+                                    <span class="text-truncate w-100">Latitude</span>
                                 </div>
                             </td>
-                            <td class="text-end f-w-600"><span id="gps_y">0</span></td>
+                            <td class="text-end f-w-600"><span id="latitude_value">0</span></td>
                         </tr>
                         <tr>
                             <td>
@@ -200,12 +200,12 @@
             }else{
                 document.getElementById("traffic_light").className = "text-success";
             }
-            document.getElementById("gps_x").innerHTML = data.gpsCoordinatesX;
-            document.getElementById("gps_y").innerHTML = data.gpsCoordinatesY;
+            document.getElementById("longitude_value").innerHTML = data.longitude;
+            document.getElementById("latitude_value").innerHTML = data.latitude;
             document.getElementById("date_time").innerHTML = data.date_time;
         });
     }
-    setInterval(getIoTDeviceData, 3000);
+    setInterval(getIoTDeviceData, 1000);
 </script>
 
 <script src="./assets/js/plugins/apexcharts.min.js"></script>
