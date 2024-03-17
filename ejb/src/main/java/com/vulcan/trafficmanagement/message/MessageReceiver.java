@@ -1,7 +1,7 @@
 package com.vulcan.trafficmanagement.message;
 
 import com.google.gson.Gson;
-import com.vulcan.trafficmanagement.device.IoTDevice;
+import com.vulcan.trafficmanagement.model.IoTDevice;
 import com.vulcan.trafficmanagement.remote.DataStorage;
 import jakarta.ejb.ActivationConfigProperty;
 import jakarta.ejb.EJB;
@@ -16,7 +16,6 @@ import jakarta.jms.MessageListener;
 public class MessageReceiver implements MessageListener {
     @EJB
     DataStorage dataStorage;
-
     @Override
     public void onMessage(Message message) {
         try{

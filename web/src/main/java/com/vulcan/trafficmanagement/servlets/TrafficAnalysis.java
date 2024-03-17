@@ -1,7 +1,7 @@
-package com.vulcan.trafficmanagement.model;
+package com.vulcan.trafficmanagement.servlets;
 
 import com.google.gson.JsonObject;
-import com.vulcan.trafficmanagement.device.IoTDevice;
+import com.vulcan.trafficmanagement.model.IoTDevice;
 import com.vulcan.trafficmanagement.remote.AnalyticalServer;
 import com.vulcan.trafficmanagement.remote.DataStorage;
 import jakarta.ejb.EJB;
@@ -17,14 +17,14 @@ import java.util.List;
 
 @WebServlet(name = "TrafficAnalysis", value = "/trafficAnalysis")
 public class TrafficAnalysis extends HttpServlet {
-    double northLaneSpeedtotal = 0;
-    int northVehicleCount = 0;
-    double southLaneSpeedtotal = 0;
-    int southVehicleCount = 0;
-    double eastLaneSpeedtotal = 0;
-    int eastVehicleCount = 0;
-    double westLaneSpeedtotal = 0;
-    int westVehicleCount = 0;
+    private double northLaneSpeedtotal = 0;
+    private int northVehicleCount = 0;
+    private double southLaneSpeedtotal = 0;
+    private int southVehicleCount = 0;
+    private double eastLaneSpeedtotal = 0;
+    private int eastVehicleCount = 0;
+    private double westLaneSpeedtotal = 0;
+    private int westVehicleCount = 0;
     @EJB
     AnalyticalServer analyticalServer;
     @EJB
@@ -37,9 +37,9 @@ public class TrafficAnalysis extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<IoTDevice> deviceList = dataStorage.retriveData();
+        List<com.vulcan.trafficmanagement.model.IoTDevice> deviceList = dataStorage.retriveData();
 
-        for (IoTDevice ioTDevice : deviceList) {
+        for (com.vulcan.trafficmanagement.model.IoTDevice ioTDevice : deviceList) {
             String lane = analyticalServer.decideLane(ioTDevice.getLatitude(), ioTDevice.getLongitude());
             if(lane.equals("NORTH")){
                 northLaneSpeedtotal += ioTDevice.getVehicleSpeed();
@@ -102,7 +102,7 @@ public class TrafficAnalysis extends HttpServlet {
         double latitude = 0.00;
         String date_time = "NONE";
 
-        List<IoTDevice> deviceList = dataStorage.retriveData();
+        List<com.vulcan.trafficmanagement.model.IoTDevice> deviceList = dataStorage.retriveData();
         if(deviceList.size() != 0){
             IoTDevice ioTDevice = deviceList.get(deviceList.size() - 1);
             vehicleSpeed = ioTDevice.getVehicleSpeed();

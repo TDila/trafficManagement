@@ -1,6 +1,4 @@
-package com.vulcan.trafficmanagement.device;
-
-import java.io.Serializable;
+package com.vulcan.trafficmanagement.model;
 
 public class IoTDevice {
     private double vehicleSpeed;

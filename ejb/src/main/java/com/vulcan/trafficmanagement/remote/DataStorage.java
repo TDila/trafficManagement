@@ -1,6 +1,6 @@
 package com.vulcan.trafficmanagement.remote;
 
-import com.vulcan.trafficmanagement.device.IoTDevice;
+import com.vulcan.trafficmanagement.model.IoTDevice;
 
 import java.util.List;
 
