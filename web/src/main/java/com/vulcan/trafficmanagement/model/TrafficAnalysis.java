@@ -32,11 +32,13 @@ public class TrafficAnalysis extends HttpServlet {
         List<IoTDevice> deviceList = dataStorage.retriveData();
 
         double averageSpeed = analyticalServer.calculateAverageSpeed(deviceList);
+        String trafficFlow = analyticalServer.trafficFlowAnalysis(averageSpeed);
+        double urbanMobilityEfficiency = analyticalServer.calculateUrbanMobilityEfficiency(averageSpeed);
 
         JsonObject json = new JsonObject();
         json.addProperty("averageSpeed", averageSpeed);
-//        json.put("trafficFlow", trafficFlow);
-//        json.put("urbanMobilityEfficiency", urbanMobilityEfficiency);
+        json.addProperty("trafficFlow", trafficFlow);
+        json.addProperty("urbanMobilityEfficiency", urbanMobilityEfficiency);
 
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");

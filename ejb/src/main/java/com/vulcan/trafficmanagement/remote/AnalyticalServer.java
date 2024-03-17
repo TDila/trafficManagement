@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface AnalyticalServer {
     public double calculateAverageSpeed(List<IoTDevice> devices);
-    public void trafficFlowAnalysis();
-    public double calculateUrbanMobilityEfficiency();
+    public String trafficFlowAnalysis(double averageSpeed);
+    public double calculateUrbanMobilityEfficiency(double averageSpeed);
+    public double calculateVehicleDensity(int vehiclesPerUpdate, int updateFrequencySeconds);
 }
