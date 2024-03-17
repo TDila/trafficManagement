@@ -1,6 +1,8 @@
 package com.vulcan.trafficmanagement.device;
 
-public class IoTDevice{
+import java.io.Serializable;
+
+public class IoTDevice {
     private double vehicleSpeed;
     private String trafficLightStatus;
     private double longitude;

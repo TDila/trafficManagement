@@ -85,25 +85,94 @@
                 </div>
             </div>
         </div>
-        <div class="col-8">
+        <div class="col-4">
             <div class="page-header-title">
-                <h2 class="mb-0">Traffic Analysis</h2>
+                <h2 class="mb-0">North Lane Traffic Analysis</h2>
             </div>
             <div class="card mt-3">
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
-                        <h5 class="mb-0">Average Vehicle Speed: <span id="avg_speed"class="text-success">0</span> kmph</h5>
+                        <h5 class="mb-0">Average Vehicle Speed: <span id="northAverageSpeed" class="text-success">0</span> kmph</h5>
                     </div>
 <%--                    <div id="customer-rate-graph"></div>--%>
                 </div>
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
-                        <h5 class="mb-0">Traffic Flow Analysis: <span id="traffic_flow" class="text-success">NONE</span></h5>
+                        <h5 class="mb-0">Traffic Flow Analysis: <span id="northTrafficFlow" class="text-success">NONE</span></h5>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
-                        <h5 class="mb-0">Urban Mobility Efficiency: <span id="urbanMobilityEfficiency" class="text-success">0</span></h5>
+                        <h5 class="mb-0">Urban Mobility Efficiency: <span id="northUME" class="text-success">0</span></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="page-header-title">
+                <h2 class="mb-0">South Lane Traffic Analysis</h2>
+            </div>
+            <div class="card mt-3">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0">Average Vehicle Speed: <span id="southAverageSpeed" class="text-success">0</span> kmph</h5>
+                    </div>
+                    <%--                    <div id="customer-rate-graph"></div>--%>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0">Traffic Flow Analysis: <span id="southTrafficFlow" class="text-success">NONE</span></h5>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0">Urban Mobility Efficiency: <span id="southUME" class="text-success">0</span></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 offset-4">
+            <div class="page-header-title">
+                <h2 class="mb-0">East Lane Traffic Analysis</h2>
+            </div>
+            <div class="card mt-3">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0">Average Vehicle Speed: <span id="eastAverageSpeed" class="text-success">0</span> kmph</h5>
+                    </div>
+                    <%--                    <div id="customer-rate-graph"></div>--%>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0">Traffic Flow Analysis: <span id="eastTrafficFlow" class="text-success">NONE</span></h5>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0">Urban Mobility Efficiency: <span id="eastUME" class="text-success">0</span></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="page-header-title">
+                <h2 class="mb-0">West Lane Traffic Analysis</h2>
+            </div>
+            <div class="card mt-3">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0">Average Vehicle Speed: <span id="westAverageSpeed" class="text-success">0</span> kmph</h5>
+                    </div>
+                    <%--                    <div id="customer-rate-graph"></div>--%>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0">Traffic Flow Analysis: <span id="westTrafficFlow" class="text-success">NONE</span></h5>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0">Urban Mobility Efficiency: <span id="westUME" class="text-success">0</span></h5>
                     </div>
                 </div>
             </div>
@@ -141,9 +210,21 @@
             console.log(data.trafficFlow);
             // console.log(data.mobilityEfficiency);
 
-            document.getElementById("avg_speed").innerHTML = data.averageSpeed;
-            document.getElementById("traffic_flow").innerHTML = data.trafficFlow;
-            document.getElementById("urbanMobilityEfficiency").innerHTML = data.urbanMobilityEfficiency;
+            document.getElementById("northAverageSpeed").innerHTML = data.northAverageSpeed;
+            document.getElementById("northTrafficFlow").innerHTML = data.northTrafficFlow;
+            document.getElementById("northUME").innerHTML = data.northUME;
+
+            document.getElementById("southAverageSpeed").innerHTML = data.southAverageSpeed;
+            document.getElementById("southTrafficFlow").innerHTML = data.southTrafficFlow;
+            document.getElementById("southUME").innerHTML = data.southUME;
+
+            document.getElementById("eastAverageSpeed").innerHTML = data.eastAverageSpeed;
+            document.getElementById("eastTrafficFlow").innerHTML = data.eastTrafficFlow;
+            document.getElementById("eastUME").innerHTML = data.eastUME;
+
+            document.getElementById("westAverageSpeed").innerHTML = data.westAverageSpeed;
+            document.getElementById("westTrafficFlow").innerHTML = data.westTrafficFlow;
+            document.getElementById("westUME").innerHTML = data.westUME;
         });
     }
     setInterval(getTrafficAnalysisData, 5000);
